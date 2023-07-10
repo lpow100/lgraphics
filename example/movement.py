@@ -5,16 +5,13 @@ def moveloop():
     while(lg.running()):
         if(lg.Input.get_keypress("d")):
             window.move(square,10,0)
-            time.sleep(0.5)
-        if(lg.Input.get_keypress("a")):
+        elif(lg.Input.get_keypress("a")):
             window.move(square,-10,0)
-            time.sleep(0.5)
-        if(lg.Input.get_keypress("w")):
-            window.move(square,0,10)
-            time.sleep(0.5)
-          if(lg.Input.get_keypress("s")):
+        elif(lg.Input.get_keypress("w")):
             window.move(square,0,-10)
-            time.sleep(0.5)
+        elif(lg.Input.get_keypress("s")):
+            window.move(square,0,10)
+        time.sleep(0.25)
 i = 0
 window = lg.Window(300,300,"test",lg.RGB(255,255,255))
 window.clear_screen()

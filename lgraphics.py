@@ -28,6 +28,8 @@ class Shape:
         self.screen = screen
         self.color = color
         self.xy = xypairs
+        self.obj = pygame.Rect(0,0,0,0)
+        draw(self)
     def addxy(self,x:int=0,y:int=0):
         for i in range(0,len(self.xy)):
             obj = self.xy[i]
@@ -35,9 +37,9 @@ class Shape:
 
 def draw(shape:Shape):
     if shape.type == "circle":
-        pygame.draw.ellipse(shape.screen,asT(shape.color),shape.xy)
+        shape.obj = pygame.draw.ellipse(shape.screen,asT(shape.color),shape.xy)
     else:
-        pygame.draw.polygon(shape.screen,asT(shape.color),shape.xy)
+        shape.obj = pygame.draw.polygon(shape.screen,asT(shape.color),shape.xy)
     
 
 class Window:
@@ -130,5 +132,3 @@ def running():
 
 def quit():
     pygame.quit()
-
-
